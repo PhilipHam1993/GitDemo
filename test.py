@@ -1,6 +1,10 @@
+from selenium import webdriver
+options = webdriver.ChromeOptions()
+options.add_experimental_option('detach', True)
+driver = webdriver.Chrome()
 
-print('Hello')
-print('Hello1')
-print('Hello2')
-print('Hello3')
+driver.get('https://rozetka.com.ua/ua/')
+
+
+
 
