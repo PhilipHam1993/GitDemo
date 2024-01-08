@@ -13,20 +13,26 @@ driver = webdriver.Chrome(options=options)
 driver.get('https://rahulshettyacademy.com/seleniumPractise/#/')
 searchLine = driver.find_element(By.XPATH, '//input[@type="search"]').send_keys('Walnuts - 1/4 Kg')
 time.sleep(3)
-addButton = driver.find_element(By.XPATH, '//div[@class="product-action"]/button').click()
-pocketButton = driver.find_element(By.XPATH, '//a/img[@alt="Cart"]').click()
-productNamePacket = driver.find_element(By.XPATH, '//div/p[@class="product-name"]').text
-assert 'Walnuts - 1/4 Kg' in productNamePacket
- # time.sleep(5)
-click = driver.find_element(By.XPATH, '//div/a[@class="increment"]').click()
-clickTwo = driver.find_element(By.XPATH, '//div/a[@class="increment"]').click()
-addButton = driver.find_element(By.XPATH, '//div[@class="product-action"]/button').click()
-pocketButton = driver.find_element(By.XPATH, '//a/img[@alt="Cart"]').click()
-productNamePacket = driver.find_element(By.XPATH, '//div/p[@class="product-name"]').text
-assert 'Walnuts - 1/4 Kg' in productNamePacket
+addButton = driver.find_element(By.XPATH, '//div[@class="product-action"]/button')
+addButton.click()
+pocketButton = driver.find_element(By.XPATH, '//a/img[@alt="Cart"]')
+pocketButton.click()
+productNamePacket = driver.find_element(By.XPATH, '//div/p[@class="product-name"]')
 
-# driver.find_element(By.XPATH, '//div/div[4]/div/button[@type="button"]').click()
-# driver.find_element(By.XPATH, '//ul/li/a[@class="product-remove"]').click()
+assert 'Walnuts - 1/4 Kg' in productNamePacket.text
+print(productNamePacket.text)
+
+checkoutButton = driver.find_element(By.XPATH, '//div[@class="cart-preview active"]/div/button[@type="button"]')
+checkoutButton.click()
+time.sleep(3)
+total = driver.find_element(By.XPATH, '//div/table/tbody/tr/td[5]/p')
+assert '170' in total.text
+print(total.text)
+
+
+
+
+
 
 
 
