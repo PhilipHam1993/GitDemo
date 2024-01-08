@@ -28,6 +28,25 @@ time.sleep(3)
 total = driver.find_element(By.XPATH, '//div/table/tbody/tr/td[5]/p')
 assert '170' in total.text
 print(total.text)
+orderButton = driver.find_element(By.XPATH, '//div/button[text()="Place Order"]')
+orderButton.click()
+
+countryForm = driver.find_element(By.XPATH, '//div/select')
+countryForm.click()
+countryOption = driver.find_element(By.XPATH, '//div/select/option')
+time.sleep(3)
+country = driver.find_element(By.XPATH, '//div/select/option[2]')
+country.click()
+assert 'Afghanistan' in country.text
+print(country.text)
+
+termAndUseButton = driver.find_element(By.XPATH, '//input[@type="checkbox"]')
+termAndUseButton.click()
+proceedButton = driver.find_element(By.XPATH, '//button')
+proceedButton.click()
+
+
+
 
 
 
