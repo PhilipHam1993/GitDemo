@@ -11,6 +11,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 options = webdriver.ChromeOptions()
 options.add_experimental_option('detach', True)
 driver = webdriver.Chrome(options=options)
+
+@pytest.mark.usefixtures("setup")
 class TestOne:
     def test_practice(self):
 
