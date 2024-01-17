@@ -1,5 +1,4 @@
 import pytest
-import fixture
 from selenium import webdriver
 
 
