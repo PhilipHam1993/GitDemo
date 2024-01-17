@@ -12,15 +12,15 @@ options = webdriver.ChromeOptions()
 options.add_experimental_option('detach', True)
 driver = webdriver.Chrome(options=options)
 
+
 @pytest.mark.usefixtures("setup")
 class TestOne:
-    def test_practice(self):
+    def test_practice(self, setup):
 
-        driver.get('https://rahulshettyacademy.com/seleniumPractise/#/')
-        searchLine = driver.find_element(By.XPATH, '//input[@type="search"]')
-        searchLine.send_keys('Walnuts - 1/4 Kg')
-        time.sleep(3)
-        addButton = driver.find_element(By.XPATH, '//div[@class="product-action"]/button')
+        searchLine = self.driver.find_element(By.XPATH, '//input[@type="search"]')
+        self.searchLine.send_keys('Walnuts - 1/4 Kg')
+        self.time.sleep(3)
+        addButton = self.driver.find_element(By.XPATH, '//div[@class="product-action"]/button')
         addButton.click()
         pocketButton = driver.find_element(By.XPATH, '//a/img[@alt="Cart"]')
         pocketButton.click()
